@@ -112,6 +112,42 @@ def load_scene_and_robot():
 
         print(f"  ✓ 创建了地板和{len(room.get('walls', []))}面墙")
 
+        # 加载物体（用简单几何体代替PLY）
+        objects_dir = os.path.join(scene_path, "objects")
+        obj_count = 0
+        for obj in room.get("objects", []):
+            obj_id = obj["id"]
+            obj_type = obj.get("type", "unknown")
+            position = obj.get("position", {"x": 0, "y": 0, "z": 0})
+            dimensions = obj.get("dimensions", {"width": 0.5, "length": 0.5, "height": 0.5})
+
+            # 创建简单立方体代表物体
+            obj_path = f"{room_path}/obj_{obj_count}"
+            obj_cube = UsdGeom.Cube.Define(stage, obj_path)
+            obj_cube.GetSizeAttr().Set(1.0)
+
+            obj_xform = UsdGeom.Xformable(obj_cube)
+            obj_xform.ClearXformOpOrder()
+
+            # 设置位置和尺寸
+            obj_xform.AddTranslateOp().Set(Gf.Vec3d(
+                position["x"],
+                position["y"],
+                position["z"] + dimensions["height"] / 2
+            ))
+            obj_xform.AddScaleOp().Set(Gf.Vec3d(
+                dimensions["width"],
+                dimensions["length"],
+                dimensions["height"]
+            ))
+
+            # 添加碰撞
+            UsdPhysics.CollisionAPI.Apply(stage.GetPrimAtPath(obj_path))
+
+            obj_count += 1
+
+        print(f"  ✓ 创建了{obj_count}个物体（简化几何）")
+
     print("\n" + "=" * 60)
     print("加载Go2-X5机器人...")
     print("=" * 60)
@@ -121,13 +157,24 @@ def load_scene_and_robot():
     robot_prim = stage.DefinePrim(robot_path, "Xform")
     robot_prim.GetReferences().AddReference(args_cli.robot_usd)
 
-    # 设置机器人位置（房间中央，高度0.5m）
+    # 计算房间中心位置（基于第一个房间）
+    first_room = scene_data.get("rooms", [])[0] if scene_data.get("rooms") else None
+    if first_room:
+        dims = first_room["dimensions"]
+        spawn_x = dims["width"] / 2
+        spawn_y = dims["length"] / 2
+        spawn_z = 0.5
+    else:
+        spawn_x, spawn_y, spawn_z = 3.0, 4.0, 0.5
+
+    # 设置机器人位置
     robot_xform = UsdGeom.Xformable(robot_prim)
     robot_xform.ClearXformOpOrder()
-    robot_xform.AddTranslateOp().Set(Gf.Vec3d(3.0, 4.0, 0.5))
+    robot_xform.AddTranslateOp().Set(Gf.Vec3d(spawn_x, spawn_y, spawn_z))
 
     print(f"  ✓ 机器人已加载")
-    print(f"  位置: (3.0, 4.0, 0.5)")
+    print(f"  位置: ({spawn_x:.2f}, {spawn_y:.2f}, {spawn_z:.2f})")
+    print(f"  USD文件: {args_cli.robot_usd}")
 
     # 设置物理场景
     scene_prim = stage.GetPrimAtPath("/World")
