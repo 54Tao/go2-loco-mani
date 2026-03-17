@@ -72,7 +72,7 @@ def load_ply_as_mesh(stage, prim_path, ply_path, texture_path=None):
 
     # 创建USD Mesh
     usd_mesh = UsdGeom.Mesh.Define(stage, prim_path)
-    usd_mesh.GetPointsAttr().Set(Vt.Vec3fArray([Gf.Vec3f(*v) for v in vertices]))
+    usd_mesh.GetPointsAttr().Set(Vt.Vec3fArray([Gf.Vec3f(float(v[0]), float(v[1]), float(v[2])) for v in vertices]))
 
     # 面索引
     face_vertex_counts = [3] * len(faces)
@@ -82,7 +82,7 @@ def load_ply_as_mesh(stage, prim_path, ply_path, texture_path=None):
 
     # 法线
     if mesh.vertex_normals is not None and len(mesh.vertex_normals) > 0:
-        usd_mesh.GetNormalsAttr().Set(Vt.Vec3fArray([Gf.Vec3f(*n) for n in mesh.vertex_normals]))
+        usd_mesh.GetNormalsAttr().Set(Vt.Vec3fArray([Gf.Vec3f(float(n[0]), float(n[1]), float(n[2])) for n in mesh.vertex_normals]))
         usd_mesh.SetNormalsInterpolation("vertex")
 
     # 顶点颜色
@@ -91,7 +91,7 @@ def load_ply_as_mesh(stage, prim_path, ply_path, texture_path=None):
         color_primvar = UsdGeom.PrimvarsAPI(usd_mesh).CreatePrimvar(
             "displayColor", Sdf.ValueTypeNames.Color3fArray, UsdGeom.Tokens.vertex
         )
-        color_primvar.Set(Vt.Vec3fArray([Gf.Vec3f(*c) for c in colors]))
+        color_primvar.Set(Vt.Vec3fArray([Gf.Vec3f(float(c[0]), float(c[1]), float(c[2])) for c in colors]))
 
     # 如果有纹理文件，创建材质
     if texture_path and os.path.exists(texture_path):
