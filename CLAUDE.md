@@ -273,6 +273,7 @@ Go2-X5 USD: /home/tjz/go2_loco_mani/assets/go2_x5.usd
 URDF转换: /home/tjz/go2_loco_mani/Go2-X5-lab/scripts/tools/convert_urdf.py
 机器人场景集成: /home/tjz/go2_loco_mani/scripts/integrate_robot_scene.py
 批量场景处理: /home/tjz/go2_loco_mani/scripts/batch_process_scenes.py
+可视化验证: /home/tjz/go2_loco_mani/scripts/visualize_scene_robot.py
 ```
 
 ### 配置文件
