@@ -1,0 +1,47 @@
+# SAGE场景与Go2-X5机器人配置文件
+# 为每个场景定义机器人spawn位置
+
+# 示例场景配置
+test_scene:
+  scene_id: "layout_deedb66c"
+  scene_type: "museum_hall"
+  dimensions:
+    width: 6.0
+    length: 8.0
+    height: 2.7
+
+  # 机器人spawn位置（多个候选位置）
+  spawn_positions:
+    - name: "center"
+      position: [3.0, 4.0, 0.5]
+      rotation: [0, 0, 0, 1]  # quaternion (x, y, z, w)
+      description: "房间中央"
+
+    - name: "near_door"
+      position: [1.5, 7.0, 0.5]
+      rotation: [0, 0, 0, 1]
+      description: "靠近门口"
+
+    - name: "corner"
+      position: [1.0, 1.0, 0.5]
+      rotation: [0, 0, 0.707, 0.707]  # 45度旋转
+      description: "房间角落"
+
+# 默认配置
+default:
+  spawn_height: 0.5  # 机器人spawn高度（米）
+  ground_clearance: 0.05  # 地面间隙
+  collision_check: true  # 是否检查碰撞
+
+# 物理参数
+physics:
+  gravity: -9.81
+  time_step: 0.01
+  solver_iterations: 4
+
+# 机器人参数
+robot:
+  model: "go2_x5"
+  usd_path: "/home/tjz/go2_loco_mani/assets/go2_x5.usd"
+  num_joints: 18  # 12腿 + 6臂
+  base_height: 0.4  # 基座高度

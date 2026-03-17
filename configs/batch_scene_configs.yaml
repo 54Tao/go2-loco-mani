@@ -1,0 +1,2864 @@
+dataset: SAGE-10k
+total_scenes: 50
+successful: 50
+failed: 0
+robot:
+  model: go2_x5
+  usd_path: /home/tjz/go2_loco_mani/assets/go2_x5.usd
+  num_joints: 18
+  base_height: 0.4
+physics:
+  gravity: -9.81
+  time_step: 0.01
+  solver_iterations: 4
+scenes:
+  20251213_020526_layout_84b703fb:
+    scene_id: layout_84b703fb
+    rooms:
+    - room_id: room_86161fe1
+      room_type: conference_room
+      dimensions:
+        width: 5.0
+        length: 7.0
+        height: 2.7
+      num_objects: 59
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.4000000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.4000000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 5.6000000000000005
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_033758_layout_cf6c1dfd:
+    scene_id: layout_cf6c1dfd
+    rooms:
+    - room_id: room_7cbb6d01
+      room_type: kitchen
+      dimensions:
+        width: 4.0
+        length: 5.0
+        height: 2.7
+      num_objects: 39
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.0
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.0
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.8
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.2
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_035441_layout_7ff33042:
+    scene_id: layout_7ff33042
+    rooms:
+    - room_id: room_68c13d40
+      room_type: shoe_store
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 101
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_040122_layout_ce0c7f91:
+    scene_id: layout_ce0c7f91
+    rooms:
+    - room_id: room_1a26be86
+      room_type: living room
+      dimensions:
+        width: 4.5
+        length: 5.0
+        height: 2.7
+      num_objects: 75
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.25
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.25
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.9
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.6
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_042117_layout_5d77e0d9:
+    scene_id: layout_5d77e0d9
+    rooms:
+    - room_id: room_702bc9b8
+      room_type: office
+      dimensions:
+        width: 3.7
+        length: 3.0
+        height: 2.7
+      num_objects: 58
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 1.85
+        - 1.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 1.85
+        - 0.6000000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.7400000000000001
+        - 0.6000000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 2.9600000000000004
+        - 2.4000000000000004
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_044801_layout_575a4fb6:
+    scene_id: layout_575a4fb6
+    rooms:
+    - room_id: room_c5bccaa4
+      room_type: warehouse
+      dimensions:
+        width: 7.0
+        length: 5.5
+        height: 2.7
+      num_objects: 109
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.5
+        - 2.75
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.5
+        - 1.1
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.4000000000000001
+        - 1.1
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 5.6000000000000005
+        - 4.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_044921_layout_4c917bc4:
+    scene_id: layout_4c917bc4
+    rooms:
+    - room_id: room_d7380af4
+      room_type: warehouse
+      dimensions:
+        width: 12.0
+        length: 8.0
+        height: 2.7
+      num_objects: 86
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 6.0
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 6.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 2.4000000000000004
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 9.600000000000001
+        - 6.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_051113_layout_05646dc7:
+    scene_id: layout_05646dc7
+    rooms:
+    - room_id: room_c0072ffe
+      room_type: garage
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 125
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_051404_layout_234eec7a:
+    scene_id: layout_234eec7a
+    rooms:
+    - room_id: room_ddc6c57d
+      room_type: kitchen
+      dimensions:
+        width: 4.0
+        length: 5.0
+        height: 2.7
+      num_objects: 108
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.0
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.0
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.8
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.2
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_055339_layout_b4e27201:
+    scene_id: layout_b4e27201
+    rooms:
+    - room_id: room_6ca25d60
+      room_type: bathroom
+      dimensions:
+        width: 3.0
+        length: 3.7
+        height: 2.7
+      num_objects: 26
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 1.5
+        - 1.85
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 1.5
+        - 0.7400000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.6000000000000001
+        - 0.7400000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 2.4000000000000004
+        - 2.9600000000000004
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_055817_layout_ed24dd11:
+    scene_id: layout_ed24dd11
+    rooms:
+    - room_id: room_113832d8
+      room_type: teen bedroom
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 69
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_060314_layout_0b66fd6d:
+    scene_id: layout_0b66fd6d
+    rooms:
+    - room_id: room_317c78d5
+      room_type: master bedroom
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 90
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_060624_layout_c99b7e46:
+    scene_id: layout_c99b7e46
+    rooms:
+    - room_id: room_f59632b2
+      room_type: music_recording_studio
+      dimensions:
+        width: 6.0
+        length: 8.0
+        height: 2.7
+      num_objects: 112
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.0
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.2000000000000002
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.800000000000001
+        - 6.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_061146_layout_f705f5b9:
+    scene_id: layout_f705f5b9
+    rooms:
+    - room_id: room_2caa0760
+      room_type: living room
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 81
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_061428_layout_60b4dbe9:
+    scene_id: layout_60b4dbe9
+    rooms:
+    - room_id: room_162a689e
+      room_type: warehouse
+      dimensions:
+        width: 20.0
+        length: 15.0
+        height: 2.7
+      num_objects: 64
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 10.0
+        - 7.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 10.0
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 4.0
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 16.0
+        - 12.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_062834_layout_e4c6d328:
+    scene_id: layout_e4c6d328
+    rooms:
+    - room_id: room_a70fc429
+      room_type: bathroom
+      dimensions:
+        width: 3.5
+        length: 3.0
+        height: 2.7
+      num_objects: 32
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 1.75
+        - 1.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 1.75
+        - 0.6000000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.7000000000000001
+        - 0.6000000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 2.8000000000000003
+        - 2.4000000000000004
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_065329_layout_6ac4858f:
+    scene_id: layout_6ac4858f
+    rooms:
+    - room_id: room_e48b4136
+      room_type: locker room
+      dimensions:
+        width: 6.0
+        length: 4.0
+        height: 2.7
+      num_objects: 93
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.0
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.2000000000000002
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.800000000000001
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_065423_layout_be99fefd:
+    scene_id: layout_be99fefd
+    rooms:
+    - room_id: room_d99961da
+      room_type: clothing store
+      dimensions:
+        width: 8.0
+        length: 6.0
+        height: 2.7
+      num_objects: 118
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 4.0
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 4.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.6
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 6.4
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_070212_layout_deedb66c:
+    scene_id: layout_deedb66c
+    rooms:
+    - room_id: room_55020ff9
+      room_type: museum_hall
+      dimensions:
+        width: 6.0
+        length: 8.0
+        height: 2.7
+      num_objects: 16
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.0
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.2000000000000002
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.800000000000001
+        - 6.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_070419_layout_889a0ed0:
+    scene_id: layout_889a0ed0
+    rooms:
+    - room_id: room_d624a917
+      room_type: dentist office
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 85
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_071547_layout_90a11d2d:
+    scene_id: layout_90a11d2d
+    rooms:
+    - room_id: room_337abe31
+      room_type: master bedroom
+      dimensions:
+        width: 4.3
+        length: 4.9
+        height: 2.7
+      num_objects: 85
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.15
+        - 2.45
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.15
+        - 0.9800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.86
+        - 0.9800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.44
+        - 3.9200000000000004
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_072325_layout_8f6dedeb:
+    scene_id: layout_8f6dedeb
+    rooms:
+    - room_id: room_502cd95e
+      room_type: living room
+      dimensions:
+        width: 4.5
+        length: 5.0
+        height: 2.7
+      num_objects: 106
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.25
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.25
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.9
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.6
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_072344_layout_55474cd0:
+    scene_id: layout_55474cd0
+    rooms:
+    - room_id: room_6d2421a4
+      room_type: lobby
+      dimensions:
+        width: 8.0
+        length: 6.0
+        height: 2.7
+      num_objects: 77
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 4.0
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 4.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.6
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 6.4
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_074231_layout_aa7f97c1:
+    scene_id: layout_aa7f97c1
+    rooms:
+    - room_id: room_a7015e5d
+      room_type: warehouse
+      dimensions:
+        width: 12.0
+        length: 8.0
+        height: 2.7
+      num_objects: 53
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 6.0
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 6.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 2.4000000000000004
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 9.600000000000001
+        - 6.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_075112_layout_3bc94f4b:
+    scene_id: layout_3bc94f4b
+    rooms:
+    - room_id: room_a70fbc71
+      room_type: living room
+      dimensions:
+        width: 4.0
+        length: 5.0
+        height: 2.7
+      num_objects: 94
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.0
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.0
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.8
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.2
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_082818_layout_5baf3003:
+    scene_id: layout_5baf3003
+    rooms:
+    - room_id: room_b0d6fde7
+      room_type: classroom
+      dimensions:
+        width: 7.0
+        length: 5.0
+        height: 2.7
+      num_objects: 85
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.5
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.5
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.4000000000000001
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 5.6000000000000005
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_084115_layout_e5955e50:
+    scene_id: layout_e5955e50
+    rooms:
+    - room_id: room_13e8f79b
+      room_type: residential_kitchen
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 97
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_084406_layout_76127bc6:
+    scene_id: layout_76127bc6
+    rooms:
+    - room_id: room_1f9a9ba7
+      room_type: art studio
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 196
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_084433_layout_5d2f2458:
+    scene_id: layout_5d2f2458
+    rooms:
+    - room_id: room_8d061434
+      room_type: kitchen
+      dimensions:
+        width: 5.0
+        length: 4.2
+        height: 2.7
+      num_objects: 67
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.1
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8400000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8400000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.3600000000000003
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_090236_layout_7e07a47a:
+    scene_id: layout_7e07a47a
+    rooms:
+    - room_id: room_bc9f42e8
+      room_type: operating room
+      dimensions:
+        width: 6.0
+        length: 8.0
+        height: 2.7
+      num_objects: 88
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.0
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.2000000000000002
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.800000000000001
+        - 6.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_090413_layout_d59e4e4b:
+    scene_id: layout_d59e4e4b
+    rooms:
+    - room_id: room_ae07236a
+      room_type: game room
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 82
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_091822_layout_aa5742d1:
+    scene_id: layout_aa5742d1
+    rooms:
+    - room_id: room_4441911f
+      room_type: master bedroom
+      dimensions:
+        width: 4.5
+        length: 4.0
+        height: 2.7
+      num_objects: 66
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.25
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.25
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.9
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.6
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_093923_layout_580ff033:
+    scene_id: layout_580ff033
+    rooms:
+    - room_id: room_9dc7f16b
+      room_type: lobby
+      dimensions:
+        width: 8.0
+        length: 10.0
+        height: 2.7
+      num_objects: 134
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 4.0
+        - 5.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 4.0
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.6
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 6.4
+        - 8.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_095233_layout_f0f198b1:
+    scene_id: layout_f0f198b1
+    rooms:
+    - room_id: room_9e63c56c
+      room_type: master bedroom
+      dimensions:
+        width: 4.0
+        length: 4.5
+        height: 2.7
+      num_objects: 35
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.0
+        - 2.25
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.0
+        - 0.9
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.8
+        - 0.9
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.2
+        - 3.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_095556_layout_2f3b586e:
+    scene_id: layout_2f3b586e
+    rooms:
+    - room_id: room_87dcc356
+      room_type: master bedroom
+      dimensions:
+        width: 4.3
+        length: 4.9
+        height: 2.7
+      num_objects: 93
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.15
+        - 2.45
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.15
+        - 0.9800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.86
+        - 0.9800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.44
+        - 3.9200000000000004
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_100651_layout_78734c2a:
+    scene_id: layout_78734c2a
+    rooms:
+    - room_id: room_2a517012
+      room_type: kitchen
+      dimensions:
+        width: 6.0
+        length: 5.0
+        height: 2.7
+      num_objects: 120
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 3.0
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 3.0
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.2000000000000002
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.800000000000001
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_101034_layout_0c657c62:
+    scene_id: layout_0c657c62
+    rooms:
+    - room_id: room_7b80040e
+      room_type: hospital room
+      dimensions:
+        width: 5.2
+        length: 4.8
+        height: 2.7
+      num_objects: 131
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.6
+        - 2.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.6
+        - 0.96
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.04
+        - 0.96
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.16
+        - 3.84
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_101649_layout_6d095d62:
+    scene_id: layout_6d095d62
+    rooms:
+    - room_id: room_dc39f18b
+      room_type: bathroom
+      dimensions:
+        width: 3.5
+        length: 4.0
+        height: 2.7
+      num_objects: 130
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 1.75
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 1.75
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.7000000000000001
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 2.8000000000000003
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_103009_layout_299b391b:
+    scene_id: layout_299b391b
+    rooms:
+    - room_id: room_52ffb68a
+      room_type: nursery
+      dimensions:
+        width: 3.7
+        length: 3.7
+        height: 2.7
+      num_objects: 71
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 1.85
+        - 1.85
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 1.85
+        - 0.7400000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.7400000000000001
+        - 0.7400000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 2.9600000000000004
+        - 2.9600000000000004
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_105704_layout_b6e8cdf9:
+    scene_id: layout_b6e8cdf9
+    rooms:
+    - room_id: room_66500cb1
+      room_type: hospital room
+      dimensions:
+        width: 4.5
+        length: 5.0
+        height: 2.7
+      num_objects: 88
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.25
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.25
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.9
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.6
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_112335_layout_e3553fe4:
+    scene_id: layout_e3553fe4
+    rooms:
+    - room_id: room_609a6bc2
+      room_type: game room
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 106
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_114549_layout_fbe37513:
+    scene_id: layout_fbe37513
+    rooms:
+    - room_id: room_3653aba6
+      room_type: master bedroom
+      dimensions:
+        width: 5.0
+        length: 4.5
+        height: 2.7
+      num_objects: 95
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.25
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.9
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.9
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_115031_layout_c378e98d:
+    scene_id: layout_c378e98d
+    rooms:
+    - room_id: room_a33ff372
+      room_type: master bedroom
+      dimensions:
+        width: 4.6
+        length: 5.5
+        height: 2.7
+      num_objects: 27
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.3
+        - 2.75
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.3
+        - 1.1
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.9199999999999999
+        - 1.1
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.6799999999999997
+        - 4.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_120304_layout_cecf88bf:
+    scene_id: layout_cecf88bf
+    rooms:
+    - room_id: room_70d6acda
+      room_type: living room
+      dimensions:
+        width: 5.0
+        length: 4.0
+        height: 2.7
+      num_objects: 55
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 2.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 0.8
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 3.2
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_121655_layout_866356ed:
+    scene_id: layout_866356ed
+    rooms:
+    - room_id: room_47f1c77a
+      room_type: grocery store
+      dimensions:
+        width: 10.0
+        length: 8.0
+        height: 2.7
+      num_objects: 58
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 5.0
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 5.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 2.0
+        - 1.6
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 8.0
+        - 6.4
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_122557_layout_70507ad7:
+    scene_id: layout_70507ad7
+    rooms:
+    - room_id: room_520656d6
+      room_type: classroom
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 62
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_123142_layout_834f3e20:
+    scene_id: layout_834f3e20
+    rooms:
+    - room_id: room_2113fe48
+      room_type: dining room
+      dimensions:
+        width: 4.5
+        length: 5.0
+        height: 2.7
+      num_objects: 72
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.25
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.25
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.9
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.6
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_123655_layout_2088cea1:
+    scene_id: layout_2088cea1
+    rooms:
+    - room_id: room_e88b179d
+      room_type: garage
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 22
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_123747_layout_2d89d0a5:
+    scene_id: layout_2d89d0a5
+    rooms:
+    - room_id: room_2b2c49cc
+      room_type: toy store
+      dimensions:
+        width: 5.0
+        length: 6.0
+        height: 2.7
+      num_objects: 59
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.5
+        - 3.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.5
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 1.0
+        - 1.2000000000000002
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 4.0
+        - 4.800000000000001
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
+  20251213_124100_layout_1d369c85:
+    scene_id: layout_1d369c85
+    rooms:
+    - room_id: room_cbf7c465
+      room_type: hospital room
+      dimensions:
+        width: 4.0
+        length: 5.0
+        height: 2.7
+      num_objects: 24
+      num_walls: 4
+      num_doors: 1
+      spawn_positions:
+      - name: center
+        position:
+        - 2.0
+        - 2.5
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 房间中央
+      - name: near_entrance
+        position:
+        - 2.0
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0
+        - 1
+        description: 靠近入口
+      - name: corner_1
+        position:
+        - 0.8
+        - 1.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - 0.707
+        - 0.707
+        description: 角落1
+      - name: corner_2
+        position:
+        - 3.2
+        - 4.0
+        - 0.5
+        rotation:
+        - 0
+        - 0
+        - -0.707
+        - 0.707
+        description: 角落2
