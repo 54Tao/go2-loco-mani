@@ -352,6 +352,206 @@ conda run -n lab huggingface-cli download nvidia/SAGE-10k --repo-type dataset --
 
 ---
 
+## 实验与调试记录
+
+### 实验1：Isaac Sim场景加载性能问题
+
+**问题现象：**
+- Isaac Sim 4.5.0在headless模式下初始化时间过长（>60秒）
+- 脚本在GPU初始化阶段挂起
+- 日志显示IOMMU警告
+
+**尝试的改动：**
+1. 简化场景加载逻辑，移除不必要的导入
+2. 使用纯USD API而非Isaac Core API
+3. 增加超时时间
+
+**结果：**
+- ⚠️ 问题依然存在，但不影响功能
+- ✓ 确认这是Isaac Sim 4.5.0的已知行为
+- ✓ GUI模式下可能表现更好（待测试）
+
+**结论：**
+- 暂时接受这个初始化延迟
+- 后续可以考虑使用GUI模式或升级Isaac Sim版本
+
+**可视化：**
+```
+初始化时间对比：
+- 预期：10-15秒
+- 实际：60-90秒
+- 差异：4-6倍
+```
+
+---
+
+### 实验2：URDF到USD转换参数优化
+
+**问题现象：**
+- 初次转换时担心基座被固定，机器人无法移动
+
+**改动：**
+- 确认未使用`--fix-base`参数
+- 使用`--merge-joints`合并固定关节
+
+**结果：**
+- ✓ 基座自由，机器人可以locomotion
+- ✓ 18个关节正确导入（12腿+6臂）
+- ✓ 物理参数合理（stiffness=100, damping=1）
+
+**配置验证：**
+```yaml
+fix_base: false  # ✓ 正确
+merge_fixed_joints: true  # ✓ 简化模型
+drive_type: force  # ✓ 力控制
+```
+
+---
+
+## 踩坑记录
+
+### 坑1：Isaac Sim导入顺序问题
+
+**现象：**
+```python
+ModuleNotFoundError: No module named 'omni.isaac.core'
+```
+
+**根因：**
+- `omni.isaac.core`等模块必须在`AppLauncher`之后导入
+- 如果在之前导入会导致模块加载失败
+
+**解决方案：**
+```python
+# ✗ 错误做法
+from omni.isaac.core import World
+from isaaclab.app import AppLauncher
+app_launcher = AppLauncher(headless=True)
+
+# ✓ 正确做法
+from isaaclab.app import AppLauncher
+app_launcher = AppLauncher(headless=True)
+simulation_app = app_launcher.app
+# 在这之后才能导入omni模块
+from omni.isaac.core import World
+```
+
+---
+
+### 坑2：SAGE场景中文材质名称
+
+**现象：**
+```
+[Warning] The path 深色橡胶_001-effect is not a valid usd path
+```
+
+**根因：**
+- USD路径不支持中文字符
+- URDF中的中文材质名称需要转换
+
+**解决方案：**
+- Isaac Sim自动将中文转换为下划线
+- 不影响功能，可以忽略警告
+
+---
+
+### 坑3：数据集下载速度慢
+
+**现象：**
+- HuggingFace下载速度不稳定
+- 526个场景需要较长时间
+
+**解决方案：**
+- 使用`--max-workers 4`参数加速
+- 可以先下载部分场景进行测试
+- 后台运行下载任务
+
+**命令：**
+```bash
+huggingface-cli download nvidia/SAGE-10k \
+  --repo-type dataset \
+  --local-dir ./ \
+  --max-workers 4
+```
+
+---
+
+### 坑4：Git仓库初始化配置
+
+**现象：**
+- 需要正确配置Git用户信息
+- GitHub token需要正确格式
+
+**解决方案：**
+```bash
+git config user.name "54Tao"
+git config user.email "t504326@icloud.com"
+git remote add origin https://54Tao:TOKEN@github.com/54Tao/go2-loco-mani.git
+```
+
+---
+
+## 素材积累
+
+### 数据集统计
+
+**SAGE-10k场景分布（前50个场景）：**
+- 总场景数：50
+- 总房间数：50
+- 房间类型：26种
+
+**Top 5房间类型：**
+1. master bedroom: 7个
+2. living room: 5个
+3. kitchen: 4个
+4. warehouse: 4个
+5. bathroom: 3个
+
+### 机器人模型信息
+
+**Go2-X5规格：**
+- 总关节数：18个
+  - 腿部关节：12个（4条腿 × 3关节）
+  - 机械臂关节：6个
+- 基座高度：0.4m
+- USD文件大小：
+  - 主文件：1.6KB
+  - 基础几何：37MB
+  - 物理配置：6.6KB
+  - 传感器配置：646B
+
+### 场景配置示例
+
+**典型spawn位置配置：**
+```yaml
+spawn_positions:
+  - name: center
+    position: [3.0, 4.0, 0.5]
+    description: 房间中央
+  - name: near_entrance
+    position: [2.5, 1.4, 0.5]
+    description: 靠近入口
+  - name: corner_1
+    position: [1.0, 1.4, 0.5]
+    rotation: [0, 0, 0.707, 0.707]
+    description: 角落1
+```
+
+---
+
+## GitHub仓库
+
+**仓库地址：** https://github.com/54Tao/go2-loco-mani
+
+**提交记录：**
+- Initial commit (2026-03-17): 项目初始化，完成阶段1-3和阶段5
+
+**分支策略：**
+- `main`: 主分支，稳定版本
+- 后续可创建`dev`分支进行开发
+
+---
+
 ## 更新日志
 
 ### 2026-03-17
