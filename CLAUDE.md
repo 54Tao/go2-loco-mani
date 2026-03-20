@@ -464,6 +464,7 @@ conda run -n lab python scripts/tools/convert_urdf.py \
 - ✅ 2个PhysicsPrismaticJoint（arm_joint7, arm_joint8）
 - ✅ 总可动关节：20个（12腿 + 6臂 + 2夹爪）
 - ✅ go2_x5_base.usd 31MB（含新mesh）
+- ✅ arm_joint8添加mimic标签跟随arm_joint7对称运动
 
 ---
 
