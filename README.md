@@ -41,11 +41,17 @@ cd Go2-X5-lab
 python scripts/tools/convert_urdf.py \
   source/robot_lab/data/Robots/go2_x5/go2_x5.urdf \
   ../assets/go2_x5.usd \
-  --merge-joints \
   --headless
+# 注意：不要加 --merge-joints，会导致机械臂消失
 ```
 
-### 4. 批量处理场景
+### 4. 可视化验证
+
+```bash
+python scripts/visualize_scene_robot.py
+```
+
+### 5. 批量处理场景
 
 ```bash
 python scripts/batch_process_scenes.py \
@@ -53,24 +59,37 @@ python scripts/batch_process_scenes.py \
   --max_scenes 50
 ```
 
+## Go2-X5 机器人规格
+
+| 参数 | 值 |
+|------|-----|
+| 总可动关节 | 20个 |
+| 腿部关节 | 12个（4腿 × 3关节：hip, thigh, calf） |
+| 机械臂关节 | 6个（arm_joint1~6，revolute） |
+| 夹爪关节 | 2个（arm_joint7~8，prismatic，开合范围0~0.044m） |
+| 夹爪控制 | arm_joint7为主动关节，arm_joint8通过mimic对称跟随 |
+| 基座高度 | ~0.4m |
+
 ## 项目结构
 
 ```
 .
 ├── Go2-X5-lab/              # Go2-X5机器人Isaac Lab扩展
+├── X5/                      # 机械臂参考资料
 ├── sage/                    # SAGE场景生成框架
 ├── datasets/                # 数据集目录
 │   └── sage-10k/            # SAGE-10k场景数据集
 ├── assets/                  # 生成的资产
 │   └── go2_x5.usd           # Go2-X5机器人USD文件
 ├── scripts/                 # 工具脚本
+│   ├── visualize_scene_robot.py
 │   ├── integrate_robot_scene.py
 │   └── batch_process_scenes.py
 ├── configs/                 # 配置文件
 │   ├── scene_robot_configs.yaml
 │   └── batch_scene_configs.yaml
-├── CLAUDE.md               # 详细开发文档
-└── README.md               # 本文件
+├── kaifa.md                 # 详细开发文档
+└── README.md                # 本文件
 ```
 
 ## 当前进展
@@ -78,11 +97,13 @@ python scripts/batch_process_scenes.py \
 - ✅ 环境配置完成
 - ✅ SAGE-10k数据集下载（526个场景）
 - ✅ Go2-X5 URDF到USD转换
+- ✅ 修改URDF添加平行夹爪（mimic对称开合）
+- ✅ 场景与机器人集成（PLY mesh + 纹理）
 - ✅ 批量场景处理（50个场景）
-- ⏳ 场景与机器人集成测试
+- ⏳ 任务设计与奖励函数
 - ⏳ VLA训练准备
 
-详细进展请查看 [CLAUDE.md](./CLAUDE.md)
+详细进展请查看 [kaifa.md](./kaifa.md)
 
 ## 参考资料
 
