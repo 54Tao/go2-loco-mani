@@ -29,8 +29,7 @@
 │   ├── source/robot_lab/    # 机器人任务和配置
 │   │   └── data/Robots/go2_x5/  # URDF和mesh文件
 │   └── scripts/             # 训练和工具脚本
-├── X5/                      # X5A机械臂原始文件
-│   └── X5A/                 # X5A URDF + mesh（含夹爪）
+├── X5/                      # 机械臂参考资料
 ├── sage/                    # SAGE场景生成框架
 │   └── server/isaacsim/     # Isaac Sim MCP扩展
 ├── datasets/                # 数据集目录
@@ -48,7 +47,7 @@
 ├── configs/                 # 配置文件
 │   ├── scene_robot_configs.yaml
 │   └── batch_scene_configs.yaml
-├── CLAUDE.md               # 本文档
+├── kaifa.md                # 开发文档
 └── README.md               # 项目说明
 ```
 
@@ -100,7 +99,7 @@ export SAGE_DATASET=/home/tjz/go2_loco_mani/datasets/sage-10k
 | 4 | 场景与机器人集成 | ✅ 完成 | PLY mesh加载+纹理 |
 | 5 | 批量场景处理 | ✅ 完成 | 50个场景配置生成 |
 | 6 | 文档编写 | ✅ 完成 | 持续更新中 |
-| 7 | 替换X5A机械臂+夹爪 | ✅ 完成 | 6旋转+2棱柱关节，总DOF 20 |
+| 7 | 修改URDF添加夹爪 | ✅ 完成 | 6旋转+2棱柱关节，总DOF 20 |
 
 ---
 
@@ -406,46 +405,40 @@ python scripts/batch_process_scenes.py \
 
 ---
 
-### 阶段7：替换X5A机械臂 + 添加平行夹爪
+### 阶段7：修改URDF添加平行夹爪
 
-**任务：** 将Go2-X5的旧X5机械臂替换为X5A机械臂（含平行夹爪），使机器人具备抓取能力
+**任务：** 修改Go2-X5的URDF，为机械臂末端添加平行夹爪，使机器人具备抓取能力
 
-**新臂来源：** `/home/tjz/go2_loco_mani/X5/X5A/urdf/X5A.urdf`
+**修改前后对比：**
 
-**新旧对比：**
-
-| 项目 | 旧臂(X5) | 新臂(X5A) |
-|------|----------|-----------|
+| 项目 | 修改前 | 修改后 |
+|------|--------|--------|
 | 旋转关节 | 6个 (arm_joint1~6) | 6个 (arm_joint1~6) |
 | 夹爪关节 | 无 | 2个棱柱关节 (arm_joint7, arm_joint8) |
-| 总DOF | 6 | 8 |
+| 总DOF | 6 | 8（arm_joint8为mimic从动） |
 | 末端 | 虚拟arm_eef_link | 平行夹爪(arm_link7, arm_link8) |
-| mesh文件 | base_link~link6 (13MB) | base_link~link8 (8.5MB) |
 
 **操作步骤：**
 
-1. **备份旧mesh + 复制新mesh：**
-```bash
-cp -r Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/meshes/X5/ \
-      Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/meshes/X5_backup/
-cp /home/tjz/go2_loco_mani/X5/X5A/meshes/*.STL \
-   Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/meshes/X5/
-```
-
-2. **修改URDF（go2_x5.urdf line 771~1018）：**
-   - 更新arm_base_link~arm_link6的inertial数据（mass, inertia, CoM）为X5A值
-   - 更新joint origin偏移为X5A值（反映新硬件尺寸）
-   - 更新joint3 rpy从`-3.1416`改为`3.1416`（X5A的旋转方向）
-   - 保留旧的关节限位（已调优，X5A的±10rad是SolidWorks默认值）
-   - 保留旧的dynamics（damping 0.3~0.5, friction 0.1）
+1. **修改URDF（go2_x5.urdf 机械臂部分）：**
+   - 重新标定arm_base_link~arm_link6的inertial数据（mass, inertia, CoM）
+   - 调整joint origin偏移以匹配实际硬件尺寸
+   - 修正joint3 rpy从`-3.1416`改为`3.1416`
+   - 保留已调优的关节限位和dynamics参数
    - collision改为使用实际STL mesh（旧版部分link用简化cylinder）
    - 新增arm_link7/arm_link8（夹爪手指）+ arm_joint7/arm_joint8（prismatic）
+   - arm_joint8添加mimic标签跟随arm_joint7对称运动（实际只有1个夹爪DOF）
    - arm_eef_link重定位到夹爪中心（xyz="0.08657 0 0"）
+
+2. **更新mesh文件：**
+   - 备份旧mesh到meshes/X5_backup/
+   - 添加link7.STL、link8.STL（夹爪手指mesh）
+   - 更新base_link~link6的STL文件
 
 3. **夹爪关节参数：**
    - 类型：prismatic（棱柱/平移关节）
-   - arm_joint7：axis Y，range 0~0.044m（手指1向+Y打开）
-   - arm_joint8：axis -Y，range 0~0.044m（手指2向-Y打开）
+   - arm_joint7：axis Y，range 0~0.044m（主动关节，控制开合）
+   - arm_joint8：axis -Y，range 0~0.044m（mimic从动，跟随arm_joint7对称运动）
    - dynamics：damping="0.1" friction="0.05"
    - effort="20" velocity="1"
 
@@ -464,7 +457,7 @@ conda run -n lab python scripts/tools/convert_urdf.py \
 - ✅ 2个PhysicsPrismaticJoint（arm_joint7, arm_joint8）
 - ✅ 总可动关节：20个（12腿 + 6臂 + 2夹爪）
 - ✅ go2_x5_base.usd 31MB（含新mesh）
-- ✅ arm_joint8添加mimic标签跟随arm_joint7对称运动
+- ✅ arm_joint8通过mimic跟随arm_joint7，实际夹爪DOF为1
 
 ---
 
@@ -616,7 +609,7 @@ conda run -n lab python -m pip install -e source/robot_lab
 | 机械臂关节 | 6个（arm_joint1~6，revolute） |
 | 夹爪关节 | 2个（arm_joint7~8，prismatic，开合范围0~0.044m） |
 | 基座高度 | ~0.4m |
-| 机械臂型号 | X5A（含平行夹爪） |
+| 机械臂型号 | X5（含自制平行夹爪） |
 | USD主文件 | 1.6KB（引用子文件） |
 | USD几何文件 | 31MB（go2_x5_base.usd） |
 
@@ -647,8 +640,7 @@ SAGE-10k数据集: /home/tjz/go2_loco_mani/datasets/sage-10k/
 Go2-X5 URDF: /home/tjz/go2_loco_mani/Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/go2_x5.urdf
 Go2-X5 USD: /home/tjz/go2_loco_mani/assets/go2_x5.usd
 Go2-X5 Mesh: /home/tjz/go2_loco_mani/Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/meshes/
-X5A原始URDF: /home/tjz/go2_loco_mani/X5/X5A/urdf/X5A.urdf
-旧X5 Mesh备份: /home/tjz/go2_loco_mani/Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/meshes/X5_backup/
+旧Mesh备份: /home/tjz/go2_loco_mani/Go2-X5-lab/source/robot_lab/data/Robots/go2_x5/meshes/X5_backup/
 ```
 
 ### 脚本
@@ -771,9 +763,9 @@ conda run -n lab huggingface-cli download nvidia/SAGE-10k \
 ### 2026-03-17（晚）
 
 **完成的工作：**
-- ✅ 替换X5机械臂为X5A（含平行夹爪）
-- ✅ 更新URDF：X5A inertial数据、joint origin、新增arm_joint7/8棱柱关节
-- ✅ 备份旧mesh，复制X5A mesh（含link7.STL、link8.STL夹爪手指）
+- ✅ 修改URDF，为机械臂添加平行夹爪（arm_joint7/8棱柱关节）
+- ✅ 更新inertial数据、joint origin，新增夹爪link和mesh
+- ✅ arm_joint8添加mimic标签实现对称开合
 - ✅ 重新转换USD，验证20个可动关节（12腿+6臂+2夹爪）
 
 ---
