@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 """
 将SAGE场景（JSON+PLY）转换为USD文件，供play_cs.py的--map参数使用。
-复用visualize_scene_robot.py中的场景加载逻辑。
 
 用法：
-    conda run -n lab python scripts/sage_to_usd.py \
-        --scene_path datasets/sage-10k/scenes/test_scene \
-        --output assets/test_scene.usd
+    cd /home/tjz/go2_loco_mani
+    conda run -n isaac python scripts/sage_to_usd.py \
+        --scene_path datasets/sage-10k/scenes/<scene_dir> \
+        --output assets/<scene_name>.usd \
+        [--max_faces 5000]   # 每个mesh最大面数，默认5000，防OOM
+
+示例：
+    conda run -n isaac python scripts/sage_to_usd.py \
+        --scene_path datasets/sage-10k/scenes/scene_0000 \
+        --output assets/scene_0000.usd
 """
 
 import argparse
@@ -15,6 +21,7 @@ from isaaclab.app import AppLauncher
 parser = argparse.ArgumentParser(description="Convert SAGE scene to USD")
 parser.add_argument("--scene_path", type=str, required=True, help="Path to SAGE scene directory")
 parser.add_argument("--output", type=str, required=True, help="Output USD file path")
+parser.add_argument("--max_faces", type=int, default=5000, help="Max faces per mesh (decimation), default 5000")
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
 args_cli.headless = True
@@ -28,6 +35,21 @@ import numpy as np
 from pxr import Usd, UsdGeom, Gf, UsdPhysics, UsdShade, Sdf, Vt
 import omni.usd
 import trimesh
+
+
+def simplify_mesh(mesh, max_faces):
+    """如果面数超过 max_faces，进行简化。"""
+    if len(mesh.faces) <= max_faces:
+        return mesh
+    try:
+        ratio = max_faces / len(mesh.faces)
+        simplified = mesh.simplify_quadric_decimation(int(len(mesh.faces) * ratio))
+        if len(simplified.faces) > 0:
+            print(f"    Decimated {len(mesh.faces)} → {len(simplified.faces)} faces")
+            return simplified
+    except Exception as e:
+        print(f"    Decimation failed ({e}), using original")
+    return mesh
 
 
 def create_wall(stage, wall_path, start, end, height, thickness=0.1):
@@ -50,12 +72,14 @@ def create_wall(stage, wall_path, start, end, height, thickness=0.1):
     UsdPhysics.CollisionAPI.Apply(stage.GetPrimAtPath(wall_path))
 
 
-def load_ply_as_mesh(stage, prim_path, ply_path, texture_path=None):
+def load_ply_as_mesh(stage, prim_path, ply_path, max_faces, texture_path=None):
     try:
         mesh = trimesh.load(ply_path, process=False)
     except Exception as e:
         print(f"  Failed to load PLY: {ply_path}: {e}")
         return False
+
+    mesh = simplify_mesh(mesh, max_faces)
 
     vertices = mesh.vertices
     faces = mesh.faces
@@ -98,6 +122,24 @@ def load_ply_as_mesh(stage, prim_path, ply_path, texture_path=None):
 def convert_scene():
     scene_path = args_cli.scene_path
     output_path = args_cli.output
+    max_faces = args_cli.max_faces
+
+    # Support ZIP input: extract to temp dir
+    _tmp_dir = None
+    if scene_path.endswith(".zip"):
+        import zipfile, tempfile
+        _tmp_dir = tempfile.mkdtemp(prefix="sage_scene_")
+        print(f"Extracting {scene_path} → {_tmp_dir}")
+        with zipfile.ZipFile(scene_path) as zf:
+            zf.extractall(_tmp_dir)
+        # Check if JSON is at root level or inside a subdir
+        json_at_root = any(f.endswith(".json") for f in os.listdir(_tmp_dir))
+        if json_at_root:
+            scene_path = _tmp_dir
+        else:
+            subdirs = [d for d in os.listdir(_tmp_dir)
+                       if os.path.isdir(os.path.join(_tmp_dir, d))]
+            scene_path = os.path.join(_tmp_dir, subdirs[0]) if subdirs else _tmp_dir
 
     # Load scene JSON
     json_file = None
@@ -122,7 +164,7 @@ def convert_scene():
     UsdGeom.SetStageMetersPerUnit(stage, 1.0)
     UsdGeom.Xform.Define(stage, "/World")
 
-    print(f"Converting: {json_file}")
+    print(f"Converting: {json_file}  (max_faces={max_faces})")
 
     for room_idx, room in enumerate(scene_data.get("rooms", [])):
         room_type = room.get("room_type", "unknown")
@@ -221,7 +263,7 @@ def convert_scene():
                 xf.AddTranslateOp().Set(Gf.Vec3d(position["x"], position["y"], position["z"]))
                 xf.AddRotateXYZOp().Set(Gf.Vec3d(rotation.get("x", 0), rotation.get("y", 0), rotation.get("z", 0)))
                 tex = tex_file if os.path.exists(tex_file) else None
-                loaded = load_ply_as_mesh(stage, obj_path + "/mesh", ply_file, tex)
+                loaded = load_ply_as_mesh(stage, obj_path + "/mesh", ply_file, max_faces, tex)
 
             if not loaded:
                 obj_cube = UsdGeom.Cube.Define(stage, obj_path)
@@ -236,9 +278,18 @@ def convert_scene():
 
         print(f"    {len(room.get('walls', []))} walls, {obj_count} objects")
 
-    # Save
+    # Save - set default prim so UsdFileCfg references work correctly
+    world_prim = stage.GetPrimAtPath("/World")
+    if world_prim.IsValid():
+        stage.SetDefaultPrim(world_prim)
+    os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     stage.GetRootLayer().Export(output_path)
     print(f"\nExported: {output_path}")
+
+    # Cleanup temp dir if ZIP was extracted
+    if _tmp_dir and os.path.exists(_tmp_dir):
+        import shutil
+        shutil.rmtree(_tmp_dir, ignore_errors=True)
 
 
 if __name__ == "__main__":
